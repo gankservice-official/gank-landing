@@ -1,43 +1,80 @@
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-heading",
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+  display: "swap",
+});
+
+const inter = Inter({
+  variable: "--font-body",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
+
 export const metadata = {
-  title: "GANK SERVICE | Smartphone Solutions",
-  description: "GANK SERVICE adalah jasa servis HP cepat, terpercaya, dan bergaransi. LCD, Baterai, Charging, Software, Kamera, hingga kerusakan akibat air",
+  title: "GANK SERVICE | Precision Repair for Modern Smartphones",
+
+  description:
+    " Professional Smartphone Repair Lab. Servis smartphone cepat, presisi, transparan, dan bergaransi oleh teknisi berpengalaman.",
+
   keywords: [
-    "GANK SERVICE",
-    "GANK SERVICE Smartphone Solutions",
-    "GANK SERVICE Servis HP",
+    "Servis HP",
+    "Servis Smartphone",
     "Ganti LCD",
     "Ganti Baterai",
-    "Ganti Charging",
-    "Ganti Software",
     "Ganti Kamera",
-    "Kerusakan akibat air",
-    "Custom ROM",
-    "Rooting",
-    "Unlock Bootloader",
-    "Unlock FRP",
-    "Unlock Jaringan",
+    "Ganti Speaker",
+    "Ganti Charging Port",
+    "Ganti Tombol Power",
+    "Ganti Tombol Volume",
+    "Repair Lab",
+    "GANK SERVICE",
+    "GANK SERVIS",
   ],
+
   authors: [
     {
-       name: "GANK SERVICE",
+      name: "GANK SERVICE",
     },
   ],
-  opensGraph: {
+
+  creator: "GANK SERVICE",
+
+  metadataBase: new URL("https://gankservice.web.id"),
+
+  openGraph: {
     title: "GANK SERVICE",
-    description: "Servis HP cepat, terpercaya, dan bergaransi.",
+    
+    description: "Professional Repair for Modern Smartphones",
+
     type: "website",
+
     locale: "id_ID",
-    siteName: "GANK SERVICE",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="id">
-      <body>
-       {children}
+    <html lang="id" suppressHydrationWarning>
+      <body
+        className={`
+          ${plusJakarta.variable}
+          ${inter.variable}
+          bg-[var(--background)]
+          text-[var(--text)]
+          antaliased
+        `}
+      >
+        {children}
       </body>
     </html>
   );
